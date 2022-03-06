@@ -1,0 +1,49 @@
+<?php
+include "info.php";
+if(isset($_POST['submit']))
+{
+	$accesion no=$_POST['accesion no'];
+	$title=$_POST['title'];
+	$author=$_POST['author'];
+	$edition=$_POST['edition'];
+	$publish=$_POST['publish'];
+
+$sql = "INSERT INTO 'book' ( `accesion numbers`, 'title`, `author`, `edition`, `publish`) VALUES ( '$accesion numbers', '$title', '$author', '$edition', '$publish')";
+$result=$conn->query($sql);
+if($result==TRUE)
+{
+	echo "new record created successfully";
+}
+else
+{
+	echo "Error".$sql."<br>".$conn->error;
+}
+$conn->close();
+}
+?>
+<html>
+<body>
+<h2> book information </h2>
+<form action="" method="POST">
+<fieldset>
+<legend> individual information </legend>
+accesion number:<br>
+<input type="number" name="aaccesion number">
+<br>
+title:<br>
+<input type="text" name="title">
+<br>
+author:
+<br>
+<input type="author" name="author">
+<br>
+edition:<br>
+<input type="edition" name="edition">
+<br>
+publish:<br>
+<input type="publish" name="publish">
+<br><br>
+<input type="submit" name="submit" value="submit">
+</fieldset>
+</body>
+</html>	
